@@ -1,0 +1,44 @@
+version: "2"
+
+services:
+    ubuntu-mysql:
+        container_name: ubuntu-mysql
+        hostname: ubuntu-mysql
+        build: ubuntu-mysql
+        image: ubuntu-mysql  
+        ports: ["7306:3306"]    
+        expose:
+            - "7306"     
+        environment:
+            - MYSQL_PASSWORD=Bea007Bea007
+    
+    ubuntu-liferay:
+        container_name: ubuntu-liferay
+        hostname: ubuntu-liferay
+        build: ubuntu-liferay
+        image: ubuntu-liferay  
+        ports: ["7080:8080"]    
+        expose:
+            - "7080"    
+    elasticsearch:
+        container_name: ubuntu-elasticsearch
+        hostname: ubuntu-elasticsearch
+        build: ubuntu-elasticsearch
+        image: ubuntu-elasticsearch 
+        ports: ["7200:9200", "7300:9300"]    
+        expose:
+            - "7200"    
+            - "7300"
+
+    # mymight-tomcat-dev:
+    #     build: mymight-tomcat-dev
+    #     image: mymight-tomcat-dev     
+    #     ports: ["7080:8080"]
+        
+    # mymight-apache-dev:
+    #     build: mymight-apache-dev
+    #     image: mymight-apache-dev        
+    #     ports: ["7443:443"]
+        
+   
+
