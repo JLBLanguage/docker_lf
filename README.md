@@ -1,3 +1,6 @@
+# How to run
+    - docker-compose up -d
+
 # Liferay container 
     - localhost:7080
     - liferay-ce-portal-tomcat-7.0-ga6-20180320170724974
