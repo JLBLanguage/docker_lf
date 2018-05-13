@@ -1,12 +1,17 @@
+# What's the purpose
+
+
 # How to run
     - docker-compose up -d
 
 # Liferay container 
-    - localhost:7080
+    - http://localhost:7080
     - liferay-ce-portal-tomcat-7.0-ga6-20180320170724974
 # Elastic search container
-    - localhost:7200
-    - localhost:7300
+    - http://localhost:7200
+    - http://localhost:7300
+# Kibana container
+    - http://localhost:7601
 # MySQL container
     - localhost:7306
     - username: root

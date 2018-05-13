@@ -24,5 +24,7 @@ WORKDIR /data
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
+# RUN keytool -import -trustcacerts -keystore /opt/java/jre/lib/security/cacerts -storepass changeit -noprompt -alias mycert -file /tmp/examplecert.crt
+
 # Define default command.
 CMD ["bash"]

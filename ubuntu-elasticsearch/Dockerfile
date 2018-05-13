@@ -65,6 +65,11 @@ COPY config ./config
 
 VOLUME /usr/share/elasticsearch/data
 
+RUN bin/plugin install analysis-icu
+RUN bin/plugin install analysis-kuromoji
+RUN bin/plugin install analysis-smartcn
+RUN bin/plugin install analysis-stempel
+
 COPY docker-entrypoint.sh /
 
 WORKDIR /

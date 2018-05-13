@@ -1,6 +1,20 @@
 version: "2"
 
 services:
+
+    ubuntu-base:
+        image: ubuntu-base
+        build: ubuntu-base
+        container_name: ubuntu-base
+        hostname: ubuntu-base
+    
+    ubuntu-java:
+        image: ubuntu-java
+        build: ubuntu-java
+        container_name: ubuntu-java
+        hostname: ubuntu-java
+        depends_on: ['ubuntu-base']
+        
     ubuntu-mysql:
         container_name: ubuntu-mysql
         hostname: ubuntu-mysql
@@ -11,6 +25,7 @@ services:
             - "7306"     
         environment:
                 - MYSQL_PASSWORD=Bea007Bea007
+        depends_on: ['ubuntu-java']        
     
     ubuntu-elasticsearch:
         container_name: ubuntu-elasticsearch
@@ -21,26 +36,28 @@ services:
         expose:
             - "7200"    
             - "7300"
+        depends_on: ['ubuntu-java']   
 
     kibana:
-        image: docker.elastic.co/kibana/kibana:6.2.4
         container_name: kibana
-        ports: ["7601:5601"]
+        hostname: kibana
+        build: kibana
+        image: kibana 
         environment:
-            ELASTICSEARCH_URL: http://ubuntu-elasticsearch
+                - ELASTICSEARCH_URL=http://ubuntu-elasticsearch:9200
+        ports: ["7601:5601"]    
         expose:
-            - "7601"  
-        networks: ['stack']
-        depends_on: ['ubuntu-elasticsearch']
+            - "7601"
+        depends_on: ['ubuntu-elasticsearch']     
 
     ubuntu-liferay:
         container_name: ubuntu-liferay
         hostname: ubuntu-liferay
         build: ubuntu-liferay
         image: ubuntu-liferay  
-        ports: ["7080:8080"]    
+        ports: ["7080:8080", "11311:11311", "7000:8000"]    
         expose:
             - "7080"   
+            - "11311"   
+            - "7000"  
         depends_on: ['ubuntu-mysql', 'ubuntu-elasticsearch'] 
-
-networks: {stack: {}}   

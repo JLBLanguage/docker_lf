@@ -34,6 +34,8 @@ COPY config/portal-setup-wizard.properties .
 COPY config/portal-ext.properties .
 COPY config/setenv.sh $CATALINA_HOME/bin/setenv.sh  
 COPY config/com.liferay.portal.search.elasticsearch.configuration.ElasticsearchConfiguration.cfg ${LIFERAY_HOME}/osgi/configs/com.liferay.portal.search.elasticsearch.configuration.ElasticsearchConfiguration.cfg
-                                                                                                
+COPY config/com.liferay.portal.store.file.system.configuration.AdvancedFileSystemStoreConfiguration.cfg ${LIFERAY_HOME}/osgi/configs/com.liferay.portal.store.file.system.configuration.AdvancedFileSystemStoreConfiguration.cfg
+
+
 EXPOSE 8080 8443 
 CMD ["sh","-c","$CATALINA_HOME/bin/catalina.sh run"]
