@@ -32,10 +32,13 @@ RUN export TMPDIR="$(mktemp -d ./temp.XXXXXXXX)" && \
 
 COPY config/portal-setup-wizard.properties .  
 COPY config/portal-ext.properties .
+COPY config/portal-developer.properties .
 COPY config/setenv.sh $CATALINA_HOME/bin/setenv.sh  
 COPY config/com.liferay.portal.search.elasticsearch.configuration.ElasticsearchConfiguration.cfg ${LIFERAY_HOME}/osgi/configs/com.liferay.portal.search.elasticsearch.configuration.ElasticsearchConfiguration.cfg
 COPY config/com.liferay.portal.store.file.system.configuration.AdvancedFileSystemStoreConfiguration.cfg ${LIFERAY_HOME}/osgi/configs/com.liferay.portal.store.file.system.configuration.AdvancedFileSystemStoreConfiguration.cfg
 
+COPY config/debug-mode/com.liferay.portal.template.freemarker.configuration.FreeMarkerEngineConfiguration.cfg ${LIFERAY_HOME}/osgi/configs/com.liferay.portal.template.freemarker.configuration.FreeMarkerEngineConfiguration.cfg
 
-EXPOSE 8080 8443 
+
+EXPOSE 8080 8443 11311
 CMD ["sh","-c","$CATALINA_HOME/bin/catalina.sh run"]
