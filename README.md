@@ -6,6 +6,7 @@
 
 # Liferay container 
     - http://localhost:7080
+    - debug port: 7001
     - liferay-ce-portal-tomcat-7.0-ga6-20180320170724974
 # Elastic search container
     - http://localhost:7200

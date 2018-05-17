@@ -8,6 +8,9 @@ ENV LIFERAY_BOUNDLE_URL https://sourceforge.net/projects/lportal/files/Liferay%2
 ENV CATALINA_HOME '/opt/liferay/tomcat-8.0.32'
 ENV LIFERAY_HOME '/opt/liferay'
 
+ENV JPDA_ADDRESS 8000
+
+
 RUN mkdir /opt/liferay
 WORKDIR /opt/liferay
 
@@ -40,5 +43,5 @@ COPY config/com.liferay.portal.store.file.system.configuration.AdvancedFileSyste
 COPY config/debug-mode/com.liferay.portal.template.freemarker.configuration.FreeMarkerEngineConfiguration.cfg ${LIFERAY_HOME}/osgi/configs/com.liferay.portal.template.freemarker.configuration.FreeMarkerEngineConfiguration.cfg
 
 
-EXPOSE 8080 8443 11311
-CMD ["sh","-c","$CATALINA_HOME/bin/catalina.sh run"]
+EXPOSE 8080 8443 11311 8000
+CMD ["sh","-c","$CATALINA_HOME/bin/catalina.sh jpda run"]

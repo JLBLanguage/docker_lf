@@ -55,10 +55,11 @@ services:
         hostname: ubuntu-liferay
         build: ubuntu-liferay
         image: ubuntu-liferay  
-        ports: ["7080:8080", "11311:11311"]    
-        expose:
+        ports: ["7080:8080", "11311:11311", "7001:8000"]    
+        expose: 
             - "7080"   
             - "11311"   
+            - "7001" 
         # volumes:
         #     - $DOCKER_LIFERAY_HOME:/opt/liferay   
         depends_on: ['ubuntu-mysql', 'ubuntu-elasticsearch'] 
