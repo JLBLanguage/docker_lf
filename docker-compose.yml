@@ -37,18 +37,20 @@ services:
             - "7200"    
             - "7300"
         depends_on: ['ubuntu-java']   
+  
+    # kibana:
+    #     container_name: kibana
+    #     hostname: kibana
+    #     build: kibana
+    #     image: kibana 
+    #     environment:
+    #             - ELASTICSEARCH_URL=http://ubuntu-elasticsearch:9200
+    #     ports: ["7601:5601"]    
+    #     expose:
+    #         - "7601"
+    #     depends_on: ['ubuntu-elasticsearch']     
 
-    kibana:
-        container_name: kibana
-        hostname: kibana
-        build: kibana
-        image: kibana 
-        environment:
-                - ELASTICSEARCH_URL=http://ubuntu-elasticsearch:9200
-        ports: ["7601:5601"]    
-        expose:
-            - "7601"
-        depends_on: ['ubuntu-elasticsearch']     
+    
 
     ubuntu-liferay:
         container_name: ubuntu-liferay
