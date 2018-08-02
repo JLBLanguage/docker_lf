@@ -38,7 +38,10 @@ services:
             - "7300"
         depends_on: ['ubuntu-java']   
   
+<<<<<<< HEAD
     #
+=======
+>>>>>>> 56fcd04fc4d739e0f0995b2c4930ef420ddb4fd2
     # tool for checking out a condition of elastic search in version of 2.xx
     # kibana:
     #     container_name: kibana
