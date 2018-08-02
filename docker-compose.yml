@@ -1,7 +1,6 @@
 version: "2.2"
 
 services:
-
     ubuntu-base:
         image: ubuntu-base
         build: ubuntu-base
@@ -38,6 +37,7 @@ services:
             - "7300"
         depends_on: ['ubuntu-java']   
     
+    # 
     # tool for checking out a condition of elastic search in version of 2.xx
     # kibana:
     #     container_name: kibana
@@ -50,8 +50,6 @@ services:
     #     expose:
     #         - "7601"
     #     depends_on: ['ubuntu-elasticsearch']     
-
-    
 
     ubuntu-liferay:
         container_name: ubuntu-liferay
